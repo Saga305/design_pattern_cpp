@@ -139,7 +139,7 @@ class ChromeFactory:public BrowserFactory
 
 int main()
 {
-	BrowserFactory *bf;
+	BrowserFactory *bf = NULL ;
 #ifdef MOZILLA
 	bf = new FirefoxFactory();
 #endif
@@ -147,4 +147,10 @@ int main()
 	bf = new ChromeFactory();
 #endif
 	bf->print();
+	
+	if(bf)
+	{
+		delete bf;
+	}
+	return 0;
 }
